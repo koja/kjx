@@ -1,6 +1,8 @@
 #ifndef KJX_FOR_EACH_HPP_9730456620
 #define KJX_FOR_EACH_HPP_9730456620
 
+#include <algorithm>
+
 namespace kjx {
 
 template<

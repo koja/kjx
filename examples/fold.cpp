@@ -1,4 +1,4 @@
-#include "../../include/functional/fold.hpp"
+#include "../include/fold.hpp"
 
 #include <functional>   // std::plus
 #include <vector>
@@ -14,7 +14,11 @@ int main() {
     {
         std::vector<int> raw = {0, 1, 2, 3};
 
-        int sum = kjx::fold( raw, 0, std::plus<int>() );
+        int sum =
+            fold(
+                0,
+                std::plus<int>()
+            )(raw );
 
         std::cout << sum << std::endl;
     }
@@ -22,21 +26,19 @@ int main() {
         std::vector<int> raw = {0, 1, 2, 3};
 
         std::string digits =
-            kjx::fold(
-            raw,
-            std::string(),
-            [](auto target, auto elem)->auto{ return target + boost::lexical_cast<std::string>(elem); }
-        );
+            fold(
+                std::string(),
+                [](auto target, auto elem) { return target + boost::lexical_cast<std::string>(elem); }
+            )(raw);
 
         std::cout << digits << std::endl;
     }
     {
         for(auto a :
-            kjx::fold(
-                std::vector<int>{0, 1, 2, 3, 0, 1, 2, 3},
+            fold(
                 std::set<int>(),
-                [](auto target, auto elem)->auto{ target.insert(elem); return target; }
-            )
+                [](auto target, auto elem) { target.insert(elem); return target; }
+            )( std::vector<int>{0, 1, 2, 3, 0, 1, 2, 3} )
         ) {
             std::cout << a << " ";
         }

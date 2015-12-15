@@ -14,11 +14,7 @@ int main() {
     {
         std::vector<int> raw = {0, 1, 2, 3};
 
-        int sum =
-            fold(
-                0,
-                std::plus<int>()
-            )(raw );
+        int sum = fold( 0, std::plus<int>() )(raw);
 
         std::cout << sum << std::endl;
     }

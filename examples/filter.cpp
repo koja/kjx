@@ -10,10 +10,7 @@ int main() {
     {
         std::vector<int> raw = {0, 1, 2, 3};
 
-        std::vector<int> odd =
-            filter(
-                [](int a)->bool{ return a % 2 == 1;}
-            )( raw );
+        std::vector<int> odd = filter( [](int a){ return a % 2 == 1; } )(raw);
 
         for(auto a : odd) {
             std::cout << a << " ";
@@ -24,10 +21,7 @@ int main() {
     {
         std::set<int> raw = {0, 1, 2, 3};
 
-        std::set<int> odd =
-            filter(
-                [](int a)->bool{ return a % 2 == 1;}
-            )(raw);
+        std::set<int> odd = filter( [](int a){ return a % 2 == 1; } )(raw);
 
         for(auto a : odd) {
             std::cout << a << " ";
@@ -37,9 +31,7 @@ int main() {
     }
     {
         for(auto a :
-            filter(
-                [](auto a)->bool{ return a.second % 2 == 1;}
-            )(
+            filter( [](auto a)->bool{ return a.second % 2 == 1;} )(
                 std::map<int, int>{ {0,0}, {1,1}, {2,2}, {3,3} }
             )
         ) {

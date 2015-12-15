@@ -13,12 +13,12 @@ see ```examples/```
 ```
 std::vector<int> raw = {0, 1, 2, 3};
 
-int sum = fold( 0, std::plus<int>() )(raw );
+int sum = fold( 0, std::plus<int>() )(raw);
 ```
 ```
 std::set<int> raw = {0, 1, 2, 3};
 
-std::set<int> odd = filter( [](int a)->bool{ return a % 2 == 1;} )(raw);
+std::set<int> odd = filter( [](int a) { return a % 2 == 1; } )(raw);
 ```
 
 ## compilation ##
